@@ -11,7 +11,7 @@ export function Nav() {
     <header className="sticky top-0 z-50 border-b border-line bg-canvas/80 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <a href="#top" className="flex items-center gap-2">
-          <Image src="/be-logo.png" alt="BetterEveryday" width={32} height={32} className="rounded-lg" />
+          <Image src="/be-logo.png" alt="BetterEveryday" width={32} height={32} className="h-8 w-8 rounded-lg" />
           <span className="text-lg font-semibold">BetterEveryday</span>
         </a>
 

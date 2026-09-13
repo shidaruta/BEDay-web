@@ -19,7 +19,7 @@ function PlayLogo() {
 
 export function AppStoreBadge() {
   return (
-    <span className="flex cursor-not-allowed items-center gap-2.5 rounded-xl bg-dark px-4 py-2.5 text-white opacity-90">
+    <span className="flex cursor-not-allowed items-center gap-2.5 rounded-xl bg-black px-4 py-2.5 text-white opacity-90">
       <AppleLogo />
       <span className="text-left leading-tight">
         <span className="block text-[10px]">Download on the</span>
@@ -31,7 +31,7 @@ export function AppStoreBadge() {
 
 export function GooglePlayBadge() {
   return (
-    <span className="flex cursor-not-allowed items-center gap-2.5 rounded-xl bg-dark px-4 py-2.5 text-white opacity-90">
+    <span className="flex cursor-not-allowed items-center gap-2.5 rounded-xl bg-black px-4 py-2.5 text-white opacity-90">
       <PlayLogo />
       <span className="text-left leading-tight">
         <span className="block text-[10px]">GET IT ON</span>

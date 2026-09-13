@@ -35,7 +35,7 @@ export function Hero() {
             alt="BetterEveryday app"
             width={533}
             height={1147}
-            className="w-full rounded-[2.5rem] shadow-xl"
+            className="w-full rounded-[2rem] shadow-xl"
             priority
           />
         </div>
