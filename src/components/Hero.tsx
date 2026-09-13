@@ -60,10 +60,10 @@ export function Hero() {
           <div className="absolute -inset-10 -z-10 rounded-full bg-brand-tint blur-3xl animate-pulse-soft" />
           <div className="animate-float">
             <Image
-              src="/phone-hero.png"
-              alt="BetterEveryday login screen"
-              width={729}
-              height={1343}
+              src="/phone-dashboard.png"
+              alt="BetterEveryday dashboard"
+              width={745}
+              height={1346}
               className="w-full"
               priority
             />
