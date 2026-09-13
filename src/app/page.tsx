@@ -4,6 +4,7 @@ import { Problem } from "@/components/Problem";
 import { Pillars } from "@/components/Pillars";
 import { HowItWorks } from "@/components/HowItWorks";
 import { Features } from "@/components/Features";
+import { WhoItsFor } from "@/components/WhoItsFor";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
         <Pillars />
         <HowItWorks />
         <Features />
+        <WhoItsFor />
       </main>
     </>
   );
