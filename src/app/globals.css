@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+/*
+ * Brand tokens mirrored from better-everyday-react/global.css so the
+ * marketing site and the app read as one product. Keep these in sync
+ * if the app's palette changes.
+ */
+:root {
+  --color-canvas: #f7f7f4;
+  --color-surface: #ffffff;
+  --color-line: #e6e6e2;
+  --color-ink: #141414;
+  --color-ink-muted: #6b7280;
+  --color-brand: #6f8f77;
+  --color-brand-dark: #5b7a63;
+  --color-brand-tint: #e9efe9;
+}
+
+@theme inline {
+  --color-canvas: var(--color-canvas);
+  --color-surface: var(--color-surface);
+  --color-line: var(--color-line);
+  --color-ink: var(--color-ink);
+  --color-ink-muted: var(--color-ink-muted);
+  --color-brand: var(--color-brand);
+  --color-brand-dark: var(--color-brand-dark);
+  --color-brand-tint: var(--color-brand-tint);
+  --font-sans: var(--font-inter);
+}
+
+body {
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
