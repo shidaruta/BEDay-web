@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { AppStoreBadge, GooglePlayBadge } from "@/components/StoreBadges";
 
 export function Hero() {
   return (
@@ -22,12 +23,8 @@ export function Hero() {
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-3">
-            <span className="flex items-center gap-2 rounded-full border border-line bg-surface px-5 py-2.5 text-sm text-ink-muted">
-              App Store — coming soon
-            </span>
-            <span className="flex items-center gap-2 rounded-full border border-line bg-surface px-5 py-2.5 text-sm text-ink-muted">
-              Google Play — coming soon
-            </span>
+            <AppStoreBadge />
+            <GooglePlayBadge />
           </div>
         </div>
 
@@ -36,8 +33,8 @@ export function Hero() {
           <Image
             src="/hero-mockup.png"
             alt="BetterEveryday app"
-            width={700}
-            height={1238}
+            width={533}
+            height={1147}
             className="w-full rounded-[2.5rem] shadow-xl"
             priority
           />
