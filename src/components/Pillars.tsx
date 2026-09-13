@@ -1,5 +1,13 @@
 import Image from "next/image";
 import { Reveal } from "@/components/Reveal";
+import {
+  IconBot,
+  IconTarget,
+  IconFlame,
+  IconAvatar,
+  IconCamera,
+  IconSparkles,
+} from "@/components/Icons";
 
 const pillars = [
   {
@@ -25,15 +33,47 @@ const pillars = [
   },
 ];
 
-const interstitials = [
-  {
-    stat: "15 sec",
-    text: "is all it takes to log a session — a page count, a workout, or a meal photo.",
-  },
-  {
-    stat: "0–100",
-    text: "one AI Coach score every day, built from whichever of the three you actually did.",
-  },
+const featureGroups = [
+  [
+    {
+      title: "AI Coach",
+      icon: IconBot,
+      description:
+        "A daily 0–100 score with personalized encouragement and suggestions, built from your actual activity.",
+    },
+    {
+      title: "Family Missions",
+      icon: IconTarget,
+      description:
+        "One shared mission a day keeps the whole family pointed at the same goal.",
+    },
+    {
+      title: "Streaks & Leaderboards",
+      icon: IconFlame,
+      description:
+        "Family and friend leaderboards, kept separate, with the same daily/weekly/monthly views.",
+    },
+  ],
+  [
+    {
+      title: "Growing Avatar",
+      icon: IconAvatar,
+      description:
+        "An avatar that visibly levels up as points and badges add up — especially motivating for kids.",
+    },
+    {
+      title: "Snap-to-Log & Voice",
+      icon: IconCamera,
+      description:
+        "Photo-log a meal, or just say what you did — no forms, no manual data entry.",
+    },
+    {
+      title: "Family Highlight Story",
+      icon: IconSparkles,
+      description:
+        "A weekly AI-generated recap of the family's activity, ready to share.",
+    },
+  ],
 ];
 
 function PhotoBanner({
@@ -68,20 +108,33 @@ function PhotoBanner({
   );
 }
 
-function Interstitial({ stat, text }: (typeof interstitials)[number]) {
+function FeatureGroup({ features }: { features: (typeof featureGroups)[number] }) {
   return (
     <div className="bg-surface py-16">
-      <Reveal className="mx-auto max-w-2xl px-6 text-center">
-        <p className="text-4xl font-semibold text-brand-dark">{stat}</p>
-        <p className="mt-3 text-lg text-ink-muted">{text}</p>
-      </Reveal>
+      <div className="mx-auto grid max-w-6xl gap-x-8 gap-y-10 px-6 sm:grid-cols-3">
+        {features.map((feature, i) => (
+          <Reveal
+            key={feature.title}
+            delay={i * 100}
+            className="group rounded-2xl p-4 text-center transition-colors duration-300 hover:bg-brand-tint/50 sm:text-left"
+          >
+            <div className="mx-auto flex h-11 w-11 items-center justify-center rounded-xl bg-brand text-white transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6 sm:mx-0">
+              <feature.icon className="h-5 w-5" />
+            </div>
+            <h3 className="mt-4 text-lg font-semibold text-ink">
+              {feature.title}
+            </h3>
+            <p className="mt-2 text-ink-muted">{feature.description}</p>
+          </Reveal>
+        ))}
+      </div>
     </div>
   );
 }
 
 export function Pillars() {
   return (
-    <section className="relative overflow-hidden py-20">
+    <section id="pillars" className="relative overflow-hidden py-20">
       <Reveal className="mx-auto max-w-2xl px-6 text-center">
         <h2 className="text-3xl font-semibold tracking-tight text-ink md:text-4xl">
           Three pillars, one score
@@ -96,11 +149,11 @@ export function Pillars() {
         <Reveal>
           <PhotoBanner pillar={pillars[0]} priority />
         </Reveal>
-        <Interstitial {...interstitials[0]} />
+        <FeatureGroup features={featureGroups[0]} />
         <Reveal>
           <PhotoBanner pillar={pillars[1]} />
         </Reveal>
-        <Interstitial {...interstitials[1]} />
+        <FeatureGroup features={featureGroups[1]} />
         <Reveal>
           <PhotoBanner pillar={pillars[2]} />
         </Reveal>

@@ -1,9 +1,8 @@
 import Image from "next/image";
 
 const links = [
+  { href: "#pillars", label: "Features" },
   { href: "#how-it-works", label: "How it works" },
-  { href: "#features", label: "Features" },
-  { href: "#team", label: "Team" },
 ];
 
 export function Nav() {
