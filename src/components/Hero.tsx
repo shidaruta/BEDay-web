@@ -1,6 +1,6 @@
+import Image from "next/image";
 import { AppStoreBadge, GooglePlayBadge } from "@/components/StoreBadges";
 import { Reveal } from "@/components/Reveal";
-import { PhoneFrame } from "@/components/PhoneFrame";
 import { IconBot, IconHeart, IconShield } from "@/components/Icons";
 
 const chips = [
@@ -56,23 +56,18 @@ export function Hero() {
           </div>
         </Reveal>
 
-        <Reveal
-          delay={150}
-          className="relative mx-auto h-[340px] w-[280px] md:h-[400px] md:w-[340px]"
-        >
-          <div className="absolute inset-0 -z-10 rounded-full bg-brand-tint blur-3xl animate-pulse-soft" />
-
-          <PhoneFrame
-            src="/phone-signup.png"
-            alt="BetterEveryday sign up screen"
-            className="absolute top-0 left-0 w-[150px] rotate-[-10deg] animate-float md:w-[175px]"
-            priority
-          />
-          <PhoneFrame
-            src="/phone-login.png"
-            alt="BetterEveryday login screen"
-            className="absolute right-0 bottom-0 w-[165px] rotate-[7deg] animate-float [animation-delay:-3s] md:w-[195px]"
-          />
+        <Reveal delay={150} className="relative mx-auto w-72 md:w-80">
+          <div className="absolute -inset-10 -z-10 rounded-full bg-brand-tint blur-3xl animate-pulse-soft" />
+          <div className="animate-float">
+            <Image
+              src="/phone-hero.png"
+              alt="BetterEveryday login screen"
+              width={729}
+              height={1343}
+              className="w-full"
+              priority
+            />
+          </div>
         </Reveal>
       </div>
     </section>
