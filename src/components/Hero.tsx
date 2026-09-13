@@ -56,17 +56,22 @@ export function Hero() {
           </div>
         </Reveal>
 
-        <Reveal delay={150} className="relative mx-auto w-64 md:w-72">
+        <Reveal
+          delay={150}
+          className="relative mx-auto w-64 [perspective:1600px] md:w-72"
+        >
           <div className="absolute -inset-8 -z-10 rounded-full bg-brand-tint blur-2xl animate-pulse-soft" />
           <div className="animate-float">
-            <Image
-              src="/hero-mockup.png"
-              alt="BetterEveryday app"
-              width={533}
-              height={1147}
-              className="w-full rounded-[2rem] shadow-2xl shadow-brand-dark/20"
-              priority
-            />
+            <div className="[transform:rotateY(-14deg)_rotateX(6deg)] transition-transform duration-500 ease-out hover:[transform:rotateY(-4deg)_rotateX(2deg)]">
+              <Image
+                src="/hero-mockup.png"
+                alt="BetterEveryday app"
+                width={533}
+                height={1147}
+                className="w-full rounded-[2rem] shadow-[22px_35px_55px_-18px_rgba(91,122,99,0.55)]"
+                priority
+              />
+            </div>
           </div>
         </Reveal>
       </div>
