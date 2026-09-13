@@ -1,11 +1,12 @@
 import Image from "next/image";
 import { AppStoreBadge, GooglePlayBadge } from "@/components/StoreBadges";
+import { Reveal } from "@/components/Reveal";
 
 export function Hero() {
   return (
     <section id="top" className="mx-auto max-w-6xl px-6 pt-16 pb-20 md:pt-24">
       <div className="grid items-center gap-12 md:grid-cols-2">
-        <div>
+        <Reveal>
           <p className="mb-4 inline-block rounded-full bg-brand-tint px-4 py-1 text-sm font-medium text-brand-dark">
             Coming soon
           </p>
@@ -26,19 +27,21 @@ export function Hero() {
             <AppStoreBadge />
             <GooglePlayBadge />
           </div>
-        </div>
+        </Reveal>
 
-        <div className="relative mx-auto w-64 md:w-72">
-          <div className="absolute -inset-8 -z-10 rounded-full bg-brand-tint blur-2xl" />
-          <Image
-            src="/hero-mockup.png"
-            alt="BetterEveryday app"
-            width={533}
-            height={1147}
-            className="w-full rounded-[2rem] shadow-xl"
-            priority
-          />
-        </div>
+        <Reveal delay={150} className="relative mx-auto w-64 md:w-72">
+          <div className="absolute -inset-8 -z-10 rounded-full bg-brand-tint blur-2xl animate-pulse-soft" />
+          <div className="animate-float">
+            <Image
+              src="/hero-mockup.png"
+              alt="BetterEveryday app"
+              width={533}
+              height={1147}
+              className="w-full rounded-[2rem] shadow-xl"
+              priority
+            />
+          </div>
+        </Reveal>
       </div>
     </section>
   );

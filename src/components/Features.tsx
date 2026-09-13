@@ -1,3 +1,5 @@
+import { Reveal } from "@/components/Reveal";
+
 const features = [
   {
     title: "AI Coach",
@@ -34,21 +36,21 @@ const features = [
 export function Features() {
   return (
     <section id="features" className="mx-auto max-w-6xl px-6 py-20">
-      <div className="mx-auto max-w-2xl text-center">
+      <Reveal className="mx-auto max-w-2xl text-center">
         <h2 className="text-3xl font-semibold tracking-tight text-ink md:text-4xl">
           Everything a family needs to build the habit
         </h2>
-      </div>
+      </Reveal>
 
       <div className="mt-14 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
-        {features.map((feature) => (
-          <div key={feature.title}>
-            <div className="h-1.5 w-8 rounded-full bg-brand" />
+        {features.map((feature, i) => (
+          <Reveal key={feature.title} delay={(i % 3) * 100} className="group">
+            <div className="h-1.5 w-8 rounded-full bg-brand transition-all duration-300 group-hover:w-14" />
             <h3 className="mt-4 text-lg font-semibold text-ink">
               {feature.title}
             </h3>
             <p className="mt-2 text-ink-muted">{feature.description}</p>
-          </div>
+          </Reveal>
         ))}
       </div>
     </section>

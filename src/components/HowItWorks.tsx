@@ -1,3 +1,5 @@
+import { Reveal } from "@/components/Reveal";
+
 const steps = [
   {
     step: "01",
@@ -29,16 +31,16 @@ export function HowItWorks() {
   return (
     <section id="how-it-works" className="border-y border-line bg-surface">
       <div className="mx-auto max-w-6xl px-6 py-20">
-        <div className="mx-auto max-w-2xl text-center">
+        <Reveal className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-semibold tracking-tight text-ink md:text-4xl">
             How it works
           </h2>
-        </div>
+        </Reveal>
 
         <div className="mt-14 grid gap-10 md:grid-cols-4">
-          {steps.map((item) => (
-            <div key={item.step}>
-              <span className="text-sm font-semibold text-brand">
+          {steps.map((item, i) => (
+            <Reveal key={item.step} delay={i * 100} className="group">
+              <span className="inline-block text-sm font-semibold text-brand transition-transform duration-300 group-hover:scale-125">
                 {item.step}
               </span>
               <h3 className="mt-2 text-lg font-semibold text-ink">
@@ -47,7 +49,7 @@ export function HowItWorks() {
               <p className="mt-2 text-sm text-ink-muted">
                 {item.description}
               </p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

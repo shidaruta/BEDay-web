@@ -17,7 +17,11 @@ export function Nav() {
 
         <nav className="hidden items-center gap-8 text-sm text-ink-muted md:flex">
           {links.map((link) => (
-            <a key={link.href} href={link.href} className="hover:text-ink">
+            <a
+              key={link.href}
+              href={link.href}
+              className="relative py-1 transition-colors hover:text-ink after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-brand after:transition-all after:duration-300 hover:after:w-full"
+            >
               {link.label}
             </a>
           ))}
@@ -25,7 +29,7 @@ export function Nav() {
 
         <a
           href="#download"
-          className="rounded-full bg-brand px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-brand-dark"
+          className="rounded-full bg-brand px-5 py-2 text-sm font-medium text-white transition-all duration-300 hover:scale-105 hover:bg-brand-dark"
         >
           Get the app
         </a>

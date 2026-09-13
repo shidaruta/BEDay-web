@@ -1,9 +1,10 @@
 import { AppStoreBadge, GooglePlayBadge } from "@/components/StoreBadges";
+import { Reveal } from "@/components/Reveal";
 
 export function FinalCta() {
   return (
     <section id="download" className="bg-brand-tint">
-      <div className="mx-auto max-w-3xl px-6 py-20 text-center">
+      <Reveal className="mx-auto max-w-3xl px-6 py-20 text-center">
         <h2 className="text-3xl font-semibold tracking-tight text-ink md:text-4xl">
           Small daily habits. Extraordinary lifelong results.
         </h2>
@@ -15,7 +16,7 @@ export function FinalCta() {
           <AppStoreBadge />
           <GooglePlayBadge />
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }
