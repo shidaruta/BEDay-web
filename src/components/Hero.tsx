@@ -1,6 +1,6 @@
-import Image from "next/image";
 import { AppStoreBadge, GooglePlayBadge } from "@/components/StoreBadges";
 import { Reveal } from "@/components/Reveal";
+import { PhoneFrame } from "@/components/PhoneFrame";
 import { IconBot, IconHeart, IconShield } from "@/components/Icons";
 
 const chips = [
@@ -58,21 +58,21 @@ export function Hero() {
 
         <Reveal
           delay={150}
-          className="relative mx-auto w-64 [perspective:1600px] md:w-72"
+          className="relative mx-auto h-[340px] w-[280px] md:h-[400px] md:w-[340px]"
         >
-          <div className="absolute -inset-8 -z-10 rounded-full bg-brand-tint blur-2xl animate-pulse-soft" />
-          <div className="animate-float">
-            <div className="[transform:rotateY(-14deg)_rotateX(6deg)] transition-transform duration-500 ease-out hover:[transform:rotateY(-4deg)_rotateX(2deg)]">
-              <Image
-                src="/hero-mockup.png"
-                alt="BetterEveryday app"
-                width={533}
-                height={1147}
-                className="w-full rounded-[2rem] shadow-[22px_35px_55px_-18px_rgba(91,122,99,0.55)]"
-                priority
-              />
-            </div>
-          </div>
+          <div className="absolute inset-0 -z-10 rounded-full bg-brand-tint blur-3xl animate-pulse-soft" />
+
+          <PhoneFrame
+            src="/phone-signup.png"
+            alt="BetterEveryday sign up screen"
+            className="absolute top-0 left-0 w-[150px] rotate-[-10deg] animate-float md:w-[175px]"
+            priority
+          />
+          <PhoneFrame
+            src="/phone-login.png"
+            alt="BetterEveryday login screen"
+            className="absolute right-0 bottom-0 w-[165px] rotate-[7deg] animate-float [animation-delay:-3s] md:w-[195px]"
+          />
         </Reveal>
       </div>
     </section>
