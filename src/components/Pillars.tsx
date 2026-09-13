@@ -146,15 +146,15 @@ export function Pillars() {
       </Reveal>
 
       <div className="mt-14">
-        <Reveal>
+        <Reveal direction="left">
           <PhotoBanner pillar={pillars[0]} priority />
         </Reveal>
         <FeatureGroup features={featureGroups[0]} />
-        <Reveal>
+        <Reveal direction="right">
           <PhotoBanner pillar={pillars[1]} />
         </Reveal>
         <FeatureGroup features={featureGroups[1]} />
-        <Reveal>
+        <Reveal direction="left">
           <PhotoBanner pillar={pillars[2]} />
         </Reveal>
       </div>
