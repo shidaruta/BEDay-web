@@ -2,25 +2,25 @@ import { Reveal } from "@/components/Reveal";
 
 const steps = [
   {
-    step: "01",
+    step: "1",
     title: "Create your family",
     description:
       "Start a family group and invite everyone with a code, a link, or a QR scan.",
   },
   {
-    step: "02",
+    step: "2",
     title: "Log your day",
     description:
       "A 15-second check-in — a timer, a photo, or your voice — across Learning, Fitness, and Diet.",
   },
   {
-    step: "03",
+    step: "3",
     title: "Get your AI Coach score",
     description:
       "Your day is scored 0–100, with personalized encouragement and suggestions.",
   },
   {
-    step: "04",
+    step: "4",
     title: "Build streaks together",
     description:
       "Watch the family streak wall climb, and compete on leaderboards with family and friends.",
@@ -37,13 +37,15 @@ export function HowItWorks() {
           </h2>
         </Reveal>
 
-        <div className="mt-14 grid gap-10 md:grid-cols-4">
+        <div className="relative mt-16 grid gap-10 md:grid-cols-4">
+          <div className="absolute top-6 right-0 left-0 hidden h-px bg-line md:block" />
+
           {steps.map((item, i) => (
-            <Reveal key={item.step} delay={i * 100} className="group">
-              <span className="inline-block text-sm font-semibold text-brand transition-transform duration-300 group-hover:scale-125">
+            <Reveal key={item.step} delay={i * 100} className="group relative">
+              <span className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-brand text-lg font-semibold text-white shadow-md shadow-brand/30 transition-transform duration-300 group-hover:scale-110">
                 {item.step}
               </span>
-              <h3 className="mt-2 text-lg font-semibold text-ink">
+              <h3 className="mt-4 text-lg font-semibold text-ink">
                 {item.title}
               </h3>
               <p className="mt-2 text-sm text-ink-muted">
