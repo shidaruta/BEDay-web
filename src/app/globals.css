@@ -11,9 +11,9 @@
   --color-line: #e6e6e2;
   --color-ink: #141414;
   --color-ink-muted: #6b7280;
-  --color-brand: #6f8f77;
-  --color-brand-dark: #5b7a63;
-  --color-brand-tint: #e9efe9;
+  --color-brand: #16a34a;
+  --color-brand-dark: #15803d;
+  --color-brand-tint: #e7f4ea;
 }
 
 @theme inline {

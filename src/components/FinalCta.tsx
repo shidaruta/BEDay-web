@@ -16,6 +16,7 @@ export function FinalCta() {
           <AppStoreBadge />
           <GooglePlayBadge />
         </div>
+        <p className="mt-2 text-xs text-ink-muted">Coming soon — not yet available for download</p>
       </Reveal>
     </section>
   );

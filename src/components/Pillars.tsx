@@ -11,25 +11,25 @@ import {
 
 const pillars = [
   {
-    name: "Learning",
-    image: "/reading.jpeg",
-    headline: "Turn reading into a daily habit",
-    description:
-      "Books, podcasts, and articles in one shared timer and library — the AI Coach turns every session into a score.",
-  },
-  {
     name: "Fitness",
     image: "/fitness.jpeg",
-    headline: "Move more, without overthinking it",
+    headline: "Fitness: move more, without overthinking it",
     description:
       "A live workout timer with GPS for outdoor runs, multiple exercises per session, and one tap to repeat your last workout.",
   },
   {
     name: "Diet",
     image: "/cooking.jpeg",
-    headline: "Eat well without the tracking hassle",
+    headline: "Diet: eat well without the tracking hassle",
     description:
       "Snap a photo of your meal and AI logs the calories and macros automatically — no manual entry, no searching a food database.",
+  },
+  {
+    name: "Learning",
+    image: "/reading.jpeg",
+    headline: "Learning: turn reading into a daily habit",
+    description:
+      "Books, podcasts, and articles in one shared timer and library — the AI Coach turns every session into a score.",
   },
 ];
 
@@ -96,9 +96,6 @@ function PhotoBanner({
       <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent" />
 
       <div className="relative mx-auto flex h-full max-w-6xl flex-col justify-center px-6 md:px-12">
-        <span className="mb-3 w-fit rounded-full bg-white/15 px-3 py-1 text-xs font-medium tracking-wide text-white uppercase backdrop-blur-sm">
-          {pillar.name}
-        </span>
         <h3 className="max-w-md text-3xl font-semibold text-white md:text-4xl">
           {pillar.headline}
         </h3>
@@ -116,7 +113,7 @@ function FeatureGroup({ features }: { features: (typeof featureGroups)[number] }
           <Reveal
             key={feature.title}
             delay={i * 100}
-            className="group rounded-2xl p-4 text-center transition-colors duration-300 hover:bg-brand-tint/50 sm:text-left"
+            className="group rounded-2xl border border-line p-6 text-center transition-all duration-300 hover:-translate-y-0.5 hover:border-brand/30 hover:shadow-md sm:text-left"
           >
             <div className="mx-auto flex h-11 w-11 items-center justify-center rounded-xl bg-brand text-white transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6 sm:mx-0">
               <feature.icon className="h-5 w-5" />
@@ -136,11 +133,14 @@ export function Pillars() {
   return (
     <section id="pillars" className="relative overflow-hidden py-20">
       <Reveal className="mx-auto max-w-2xl px-6 text-center">
+        <p className="mb-4 inline-block rounded-full bg-brand-tint px-4 py-1 text-sm font-semibold tracking-widest text-brand-dark">
+          F · D · L
+        </p>
         <h2 className="text-3xl font-semibold tracking-tight text-ink md:text-4xl">
-          Three pillars, one score
+          Fitness, Diet, Learning — one score
         </h2>
         <p className="mt-4 text-lg text-ink-muted">
-          Everything you log across Learning, Fitness, and Diet feeds one
+          Everything you log across Fitness, Diet, and Learning feeds one
           daily AI Coach score.
         </p>
       </Reveal>
