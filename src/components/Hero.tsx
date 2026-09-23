@@ -54,16 +54,17 @@ export function Hero() {
             <AppStoreBadge />
             <GooglePlayBadge />
           </div>
+          <p className="mt-2 text-xs text-ink-muted">Coming soon — not yet available for download</p>
         </Reveal>
 
-        <Reveal delay={150} className="relative mx-auto w-72 md:w-80">
-          <div className="absolute -inset-10 -z-10 rounded-full bg-brand-tint blur-3xl animate-pulse-soft" />
+        <Reveal delay={150} className="relative mx-auto w-60 md:w-72">
+          <div className="absolute -inset-24 -z-10 rounded-full bg-brand-tint blur-3xl animate-pulse-soft" />
           <div className="animate-float">
             <Image
               src="/phone-dashboard.png"
               alt="BetterEveryday dashboard"
-              width={745}
-              height={1346}
+              width={954}
+              height={1878}
               className="w-full"
               priority
             />
