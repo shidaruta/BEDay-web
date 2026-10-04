@@ -1,59 +1,72 @@
 import { Reveal } from "@/components/Reveal";
+import { SectionHeading } from "@/components/SectionHeading";
+import { IconArrowRight, IconBot, IconCamera, IconFlame, IconUsers } from "@/components/Icons";
 
 const steps = [
   {
-    step: "1",
-    title: "Create your family",
-    description:
-      "Start a family group and invite everyone with a code, a link, or a QR scan.",
+    word: "Create",
+    icon: IconUsers,
+    title: "Start your family team",
+    description: "Invite everyone with a code, a link, or a QR scan.",
+    iconClass: "bg-brand-tint text-brand-dark",
   },
   {
-    step: "2",
-    title: "Log your day",
-    description:
-      "A 15-second check-in — a timer, a photo, or your voice — across Learning, Fitness, and Diet.",
+    word: "Track",
+    icon: IconCamera,
+    title: "Log your day in 15 seconds",
+    description: "A timer, a photo, or your voice — across Fitness, Diet, and Learning.",
+    iconClass: "bg-mint text-mint-ink",
   },
   {
-    step: "3",
+    word: "Improve",
+    icon: IconBot,
     title: "Get your AI Coach score",
-    description:
-      "Your day is scored 0–100, with personalized encouragement and suggestions.",
+    description: "Your day gets a score, with encouragement and one next step.",
+    iconClass: "bg-green-500 text-white",
   },
   {
-    step: "4",
-    title: "Build streaks together",
-    description:
-      "Watch the family streak wall climb, and compete on leaderboards with family and friends.",
+    word: "Grow Together",
+    icon: IconFlame,
+    title: "Build streaks as a family",
+    description: "Watch the family streak wall climb, and cheer each other on.",
+    iconClass: "bg-brand-dark text-white",
   },
 ];
 
-export function HowItWorks() {
+export function HowItWorks({ titleAs = "h2" }: { titleAs?: "h1" | "h2" }) {
   return (
-    <section id="how-it-works" className="border-y border-line bg-surface">
-      <div className="mx-auto max-w-6xl px-6 py-20">
-        <Reveal className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-semibold tracking-tight text-ink md:text-4xl">
-            How it works
-          </h2>
-        </Reveal>
-
-        <div className="relative mt-16 grid gap-10 md:grid-cols-4">
-          <div className="absolute top-6 right-0 left-0 hidden h-px bg-line md:block" />
-
-          {steps.map((item, i) => (
-            <Reveal key={item.step} delay={i * 100} className="group relative">
-              <span className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-brand text-lg font-semibold text-white shadow-md shadow-brand/30 transition-transform duration-300 group-hover:scale-110">
-                {item.step}
-              </span>
-              <h3 className="mt-4 text-lg font-semibold text-ink">
-                {item.title}
-              </h3>
-              <p className="mt-2 text-sm text-ink-muted">
-                {item.description}
-              </p>
-            </Reveal>
+    <section id="how-it-works" className="mx-auto max-w-[1080px] px-6 py-24">
+      <SectionHeading eyebrow="Effortless simplicity" title="How it works" as={titleAs}>
+        <span className="flex flex-wrap items-center justify-center gap-x-2 text-sm font-bold tracking-[0.08em] text-brand-dark uppercase">
+          {steps.map((step, i) => (
+            <span key={step.word} className="flex items-center gap-2">
+              {step.word}
+              {i < steps.length - 1 && <IconArrowRight className="h-4 w-4" />}
+            </span>
           ))}
-        </div>
+        </span>
+      </SectionHeading>
+
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {steps.map((step, i) => (
+          <Reveal
+            key={step.word}
+            delay={i * 120}
+            className="group rounded-[2rem] bg-surface p-6 shadow-sm ring-1 ring-line transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:ring-brand/30"
+          >
+            <span className="text-5xl font-bold text-brand/25 transition-colors duration-300 group-hover:text-brand/60">
+              0{i + 1}
+            </span>
+            <div className="mt-5">
+              <div className={`mb-4 flex h-10 w-10 items-center justify-center rounded-full ${step.iconClass}`}>
+                <step.icon className="h-5 w-5" />
+              </div>
+              <p className="text-[11px] font-bold tracking-[0.08em] text-brand uppercase">{step.word}</p>
+              <h3 className="mt-1 mb-2 text-lg font-semibold text-ink">{step.title}</h3>
+              <p className="text-sm text-ink-muted">{step.description}</p>
+            </div>
+          </Reveal>
+        ))}
       </div>
     </section>
   );

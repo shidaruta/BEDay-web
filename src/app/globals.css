@@ -6,26 +6,40 @@
  * if the app's palette changes.
  */
 :root {
-  --color-canvas: #f7f7f4;
+  --color-canvas: #fbf8fc;
   --color-surface: #ffffff;
-  --color-line: #e6e6e2;
-  --color-ink: #141414;
-  --color-ink-muted: #6b7280;
-  --color-brand: #16a34a;
-  --color-brand-dark: #15803d;
+  --color-surface-low: #f6f2f7;
+  --color-surface-mid: #f0edf1;
+  --color-line: #e4e1e6;
+  --color-ink: #1b1b1e;
+  --color-ink-muted: #4b554b;
+  --color-outline: #6f7a6e;
+  --color-brand: #15803d;
+  --color-brand-dark: #00652c;
   --color-brand-tint: #e7f4ea;
+  --color-mint: #93f4ac;
+  --color-mint-ink: #005323;
+  --color-leaf: #95f8a7;
+  --color-lime: #6bff8f;
 }
 
 @theme inline {
   --color-canvas: var(--color-canvas);
   --color-surface: var(--color-surface);
+  --color-surface-low: var(--color-surface-low);
+  --color-surface-mid: var(--color-surface-mid);
   --color-line: var(--color-line);
   --color-ink: var(--color-ink);
   --color-ink-muted: var(--color-ink-muted);
+  --color-outline: var(--color-outline);
   --color-brand: var(--color-brand);
   --color-brand-dark: var(--color-brand-dark);
   --color-brand-tint: var(--color-brand-tint);
-  --font-sans: var(--font-inter);
+  --color-mint: var(--color-mint);
+  --color-mint-ink: var(--color-mint-ink);
+  --color-leaf: var(--color-leaf);
+  --color-lime: var(--color-lime);
+  --font-sans: var(--font-jakarta);
 }
 
 html {

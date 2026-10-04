@@ -1,27 +1,25 @@
-import { Nav } from "@/components/Nav";
 import { Hero } from "@/components/Hero";
-import { Stats } from "@/components/Stats";
-import { Problem } from "@/components/Problem";
-import { Pillars } from "@/components/Pillars";
+import { WhyBetterEveryday } from "@/components/WhyBetterEveryday";
+import { PillarExplorer } from "@/components/PillarExplorer";
 import { HowItWorks } from "@/components/HowItWorks";
-import { WhoItsFor } from "@/components/WhoItsFor";
+import { FeatureBento } from "@/components/FeatureBento";
+import { Trust } from "@/components/Trust";
+import { Social } from "@/components/Social";
+import { Faq } from "@/components/Faq";
 import { FinalCta } from "@/components/FinalCta";
-import { Footer } from "@/components/Footer";
 
 export default function Home() {
   return (
     <>
-      <Nav />
-      <main>
-        <Hero />
-        <Stats />
-        <Problem />
-        <Pillars />
-        <HowItWorks />
-        <WhoItsFor />
-        <FinalCta />
-      </main>
-      <Footer />
+      <Hero />
+      <WhyBetterEveryday />
+      <PillarExplorer />
+      <FeatureBento />
+      <HowItWorks />
+      <Trust />
+      <Social />
+      <Faq />
+      <FinalCta />
     </>
   );
 }
