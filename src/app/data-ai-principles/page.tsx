@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/site";
 import { PageHeader } from "@/components/PageHeader";
 import { ComingSoon } from "@/components/ComingSoon";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Data & AI Principles",
-  description: "How BetterEveryday uses data and AI, and the principles behind it.",
-};
+  description:
+    "How the BetterEveryday AI Coach scores your day, what family data it uses, and our commitment to transparent AI.",
+  path: "/data-ai-principles",
+});
 
 export default function DataAiPrinciplesPage() {
   return (

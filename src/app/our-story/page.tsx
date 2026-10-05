@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/site";
 import Image from "next/image";
 import { PageHeader } from "@/components/PageHeader";
 import { Reveal } from "@/components/Reveal";
@@ -6,11 +7,12 @@ import { SectionHeading } from "@/components/SectionHeading";
 import { Social } from "@/components/Social";
 import { IconArrowRight, IconBook, IconBowl, IconDumbbell } from "@/components/Icons";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Our Story",
   description:
     "BetterEveryday started as a hand-drawn reflection chart on a wall at home — a family writing down small, good choices every day.",
-};
+  path: "/our-story",
+});
 
 const columns = [
   {

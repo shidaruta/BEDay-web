@@ -2,7 +2,7 @@ import { Reveal } from "@/components/Reveal";
 import { SectionHeading } from "@/components/SectionHeading";
 import { IconChevronDown } from "@/components/Icons";
 
-const faqs = [
+export const faqs = [
   {
     question: "When can we download BetterEveryday?",
     answer:
