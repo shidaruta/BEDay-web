@@ -16,6 +16,15 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+The floating BetterEveryday assistant proxies chat requests through `/api/chat`. Configure its upstream server in `.env.local`:
+
+```bash
+CHATBOT_API_URL=http://your-chatbot-host:port/chat
+CHATBOT_CLIENT_API_KEY=optional-client-api-key
+```
+
+`CHATBOT_CLIENT_API_KEY` is only needed when the chatbot server requires the `x-api-key` header. Both values remain server-side and are not exposed in the browser bundle.
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
