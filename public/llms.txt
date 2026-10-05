@@ -1,0 +1,44 @@
+# BetterEveryday
+
+> BetterEveryday is an AI-powered family wellness app that turns Fitness, Diet, and Learning into one daily habit loop. Families log their day in about 15 seconds, get a daily score and encouragement from an AI Coach, and build streaks together. The app is coming soon to iOS and Android.
+
+## Who it is for
+
+- Families with children who want to build healthy routines together
+- Health-conscious adults who want to track their own reading, fitness, and diet
+
+## How it works
+
+1. Start a family team — invite everyone with a code, a link, or a QR scan.
+2. Log your day in about 15 seconds — with a timer, a photo, or your voice — across Fitness, Diet, and Learning.
+3. Get your AI Coach score — the AI Coach scores your day based on what you actually logged and suggests one next step.
+4. Build streaks as a family — a shared family streak wall, plus optional leaderboards.
+
+## The three pillars
+
+- [Fitness](https://app.bettereveryday.live/fitness): live workout timer, GPS for outdoor runs, multiple exercises per session, and one tap to repeat your last workout.
+- [Diet](https://app.bettereveryday.live/diet): snap a photo of a meal and AI logs the calories and macros automatically, or just say what you ate.
+- [Learning](https://app.bettereveryday.live/learning): books, podcasts, and articles in one shared family timer and library; every session is scored by the AI Coach.
+
+## Privacy and safety
+
+- Kids' accounts come with parental controls.
+- BetterEveryday never sells your family's data.
+- Family and friend leaderboards are kept separate; competing with friends is opt-in and never on by default.
+- The full Privacy Policy and Data & AI Principles will be published before launch.
+
+## Pages
+
+- [Home](https://app.bettereveryday.live/)
+- [How It Works](https://app.bettereveryday.live/how-it-works)
+- [Our Story](https://app.bettereveryday.live/our-story): BetterEveryday started as a hand-drawn reflection chart on a wall at home — a family writing down small, good choices every day.
+- [Data & AI Principles](https://app.bettereveryday.live/data-ai-principles)
+- [Privacy Policy](https://app.bettereveryday.live/privacy)
+- [Terms of Service](https://app.bettereveryday.live/terms)
+
+## Social
+
+- [Facebook](https://www.facebook.com/profile.php?id=61592063613871)
+- [TikTok](https://www.tiktok.com/@bettereveryday227)
+- [Instagram](https://www.instagram.com/bettereveyday26)
+- [YouTube](https://www.youtube.com/@bettereveryday_365d)
