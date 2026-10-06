@@ -19,11 +19,15 @@ export function Nav() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const close = () => setOpen(false);
+  const goHome = () => {
+    close();
+    if (pathname === "/") window.scrollTo({ top: 0 });
+  };
 
   return (
     <header className="sticky top-0 z-50 bg-canvas/85 shadow-[0_1px_8px_rgba(0,0,0,0.04)] backdrop-blur-xl">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 h-20 px-4 sm:gap-6 sm:px-6">
-        <Link href="/" onClick={close} className="flex shrink-0 items-center gap-2">
+        <Link href="/" onClick={goHome} className="flex shrink-0 items-center gap-2">
           <Image src="/be-logo.png" alt="BetterEveryday" width={32} height={32} className="h-8 w-8 rounded-lg" />
           <span className="text-lg font-bold tracking-tight text-brand-dark max-[359px]:sr-only">BetterEveryday</span>
         </Link>
