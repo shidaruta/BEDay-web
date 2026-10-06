@@ -66,7 +66,7 @@ export function FeatureBento() {
           game you play together.
         </SectionHeading>
 
-        <div className="grid gap-6 md:grid-cols-12">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-12">
           <Card
             span="md:col-span-7"
             icon={IconAvatar}
@@ -104,7 +104,7 @@ export function FeatureBento() {
               </span>
               <span className="min-w-0 flex-1">
                 <span className="block text-[11px] font-bold tracking-[0.08em] text-brand uppercase">Today&apos;s mission</span>
-                <span className="block truncate text-sm font-semibold text-ink">Evening walk together</span>
+                <span className="block text-sm font-semibold text-ink sm:truncate">Evening walk together</span>
               </span>
               <span className="shrink-0 rounded-full bg-surface px-2.5 py-1 text-xs font-semibold text-brand shadow-sm">3 of 4 done</span>
             </div>
@@ -140,9 +140,9 @@ export function FeatureBento() {
             description="A daily score with personalized encouragement and suggestions, built from your actual activity."
             delay={100}
           >
-            <div className="flex items-center gap-3 rounded-full bg-surface-low px-4 py-2.5 text-sm text-ink-muted">
+            <div className="flex items-center gap-3 rounded-2xl bg-surface-low px-4 py-2.5 text-sm text-ink-muted sm:rounded-full">
               <IconBot className="h-5 w-5 shrink-0 text-brand" />
-              <span className="truncate">
+              <span className="sm:truncate">
                 <strong className="text-ink">AI Coach:</strong> &ldquo;Great walk today — a short read tonight will round it off.&rdquo;
               </span>
             </div>

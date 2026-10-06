@@ -67,7 +67,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col bg-canvas text-ink">
         <JsonLd data={organizationJsonLd} />
         <Nav />
-        <main className="flex-1">{children}</main>
+        <main className="flex-1 overflow-x-clip">{children}</main>
         <Footer />
         <AiAssistant />
       </body>

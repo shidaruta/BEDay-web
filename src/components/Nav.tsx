@@ -22,10 +22,10 @@ export function Nav() {
 
   return (
     <header className="sticky top-0 z-50 bg-canvas/85 shadow-[0_1px_8px_rgba(0,0,0,0.04)] backdrop-blur-xl">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 h-20 px-6">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 h-20 px-4 sm:gap-6 sm:px-6">
         <Link href="/" onClick={close} className="flex shrink-0 items-center gap-2">
           <Image src="/be-logo.png" alt="BetterEveryday" width={32} height={32} className="h-8 w-8 rounded-lg" />
-          <span className="text-lg font-bold tracking-tight text-brand-dark">BetterEveryday</span>
+          <span className="text-lg font-bold tracking-tight text-brand-dark max-[359px]:sr-only">BetterEveryday</span>
         </Link>
 
         <nav className="hidden items-center gap-1 text-sm font-semibold lg:flex">
@@ -50,7 +50,7 @@ export function Nav() {
           <Link
             href="/#download"
             onClick={close}
-            className="rounded-full bg-brand px-5 py-2 text-sm font-semibold whitespace-nowrap text-white shadow-[0_12px_32px_-4px_rgba(21,128,61,0.25)] transition-all duration-300 hover:scale-[1.02] hover:bg-brand-dark"
+            className="rounded-full bg-brand px-4 py-2 text-sm font-semibold sm:px-5 whitespace-nowrap text-white shadow-[0_12px_32px_-4px_rgba(21,128,61,0.25)] transition-all duration-300 hover:scale-[1.02] hover:bg-brand-dark"
           >
             Get the app
           </Link>
@@ -70,7 +70,7 @@ export function Nav() {
       </div>
 
       {open && (
-        <nav id="mobile-menu" className="border-t border-line bg-canvas px-6 py-4 lg:hidden">
+        <nav id="mobile-menu" className="border-t border-line bg-canvas px-4 py-4 sm:px-6 lg:hidden">
           {links.map((link) => (
             <Link
               key={link.href}
