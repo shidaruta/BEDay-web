@@ -70,9 +70,85 @@ body {
   animation: pulse-soft 5s ease-in-out infinite;
 }
 
+@keyframes sprout-breathe {
+  0%, 100% { transform: scale(1, 1); }
+  50% { transform: scale(1.015, 0.975); }
+}
+
+@keyframes sprout-sway {
+  0%, 100% { transform: rotate(-4deg); }
+  50% { transform: rotate(4deg); }
+}
+
+@keyframes sprout-blink {
+  0%, 92%, 100% { transform: scaleY(1); }
+  95% { transform: scaleY(0.08); }
+}
+
+.sprout-breathe,
+.sprout-sway {
+  transform-box: view-box;
+}
+
+.sprout-breathe {
+  transform-origin: 150px 358px;
+  animation: sprout-breathe 3.2s ease-in-out infinite;
+}
+
+.sprout-sway {
+  transform-origin: 150px 182px;
+  animation: sprout-sway 4s ease-in-out infinite;
+}
+
+.sprout-blink {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: sprout-blink 5s ease-in-out infinite;
+}
+
+@keyframes sprout-hop {
+  0%, 86%, 100% { transform: translateY(0) rotate(0); }
+  89% { transform: translateY(-8px) rotate(-6deg); }
+  92% { transform: translateY(0) rotate(4deg); }
+  95% { transform: translateY(-3px) rotate(0); }
+  97% { transform: translateY(0); }
+}
+
+@keyframes sprout-ring {
+  0% { transform: scale(1); opacity: 0.7; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+@keyframes sprout-pop {
+  from { transform: scale(0.85) translateY(6px); opacity: 0; }
+  to { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+.sprout-hop {
+  animation: sprout-hop 10s ease-in-out 2s infinite;
+}
+
+.sprout-ring {
+  animation: sprout-ring 3s ease-out infinite;
+}
+
+.sprout-pop {
+  transform-origin: bottom right;
+  animation: sprout-pop 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-float,
-  .animate-pulse-soft {
+  .animate-pulse-soft,
+  .sprout-breathe,
+  .sprout-sway,
+  .sprout-blink,
+  .sprout-hop,
+  .sprout-pop {
     animation: none;
+  }
+
+  .sprout-ring {
+    display: none;
   }
 }
