@@ -214,7 +214,7 @@ export function AiAssistant() {
             disabled={isLoading}
             placeholder="Ask me anything…"
             aria-label="Message"
-            className="max-h-24 min-h-8 flex-1 resize-none bg-transparent py-1 text-sm leading-6 text-ink outline-none placeholder:text-ink-muted/70 disabled:opacity-60"
+            className="field-sizing-content max-h-24 min-h-8 flex-1 resize-none bg-transparent py-1 text-base leading-6 sm:text-sm text-ink outline-none placeholder:text-ink-muted/70 disabled:opacity-60"
           />
           <button
             type="submit"
@@ -227,7 +227,7 @@ export function AiAssistant() {
             </svg>
           </button>
         </div>
-        <p className="mt-1.5 text-center text-[10px] text-ink-muted">Enter to send · Shift + Enter for a new line</p>
+        <p className="mt-1.5 text-center text-[10px] text-ink-muted pointer-coarse:hidden">Enter to send · Shift + Enter for a new line</p>
       </form>
     </section>
   );
