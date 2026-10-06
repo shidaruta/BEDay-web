@@ -17,7 +17,7 @@ const columns = [
     title: "Company",
     links: [
       { href: "/our-story", label: "Our Story" },
-      { href: "mailto:bettereveryda7@gmail.com", label: "Contact us" },
+      { href: "/contact", label: "Contact us" },
     ],
   },
   {

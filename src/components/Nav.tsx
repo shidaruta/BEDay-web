@@ -12,7 +12,7 @@ const links = [
   { href: "/diet", label: "Diet" },
   { href: "/learning", label: "Learning" },
   { href: "/our-story", label: "Our Story" },
-  { href: "/#social", label: "Social" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export function Nav() {

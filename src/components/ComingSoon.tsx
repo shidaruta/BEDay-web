@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Reveal } from "@/components/Reveal";
 
 export function ComingSoon({ children }: { children: React.ReactNode }) {
@@ -7,9 +8,9 @@ export function ComingSoon({ children }: { children: React.ReactNode }) {
         <p className="text-lg text-ink-muted">{children}</p>
         <p className="mt-6 text-sm text-ink-muted">
           Questions in the meantime?{" "}
-          <a href="mailto:bettereveryda7@gmail.com" className="font-medium text-brand-dark hover:underline">
+          <Link href="/contact" className="font-medium text-brand-dark hover:underline">
             Contact us
-          </a>
+          </Link>
         </p>
       </Reveal>
     </section>
