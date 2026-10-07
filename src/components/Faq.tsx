@@ -1,6 +1,7 @@
+import Link from "next/link";
 import { Reveal } from "@/components/Reveal";
 import { SectionHeading } from "@/components/SectionHeading";
-import { IconChevronDown } from "@/components/Icons";
+import { IconArrowRight, IconChevronDown } from "@/components/Icons";
 
 export const faqs = [
   {
@@ -48,6 +49,14 @@ export function Faq() {
           </Reveal>
         ))}
       </div>
+
+      <p className="mt-8 text-center text-ink-muted">
+        Still have a question?{" "}
+        <Link href="/contact" className="inline-flex items-center gap-1 font-semibold text-brand-dark hover:underline">
+          Contact us
+          <IconArrowRight className="h-4 w-4" />
+        </Link>
+      </p>
     </section>
   );
 }

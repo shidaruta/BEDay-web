@@ -17,7 +17,7 @@ const columns = [
     title: "Company",
     links: [
       { href: "/our-story", label: "Our Story" },
-      { href: "mailto:bettereveryda7@gmail.com", label: "Contact us" },
+      { href: "/contact", label: "Contact us" },
     ],
   },
   {
@@ -38,7 +38,7 @@ const promises = [
 
 export function Footer() {
   return (
-    <footer className="bg-surface-low px-6 pt-16 pb-8">
+    <footer className="bg-surface-low px-6 pt-16 pb-24">
       <div className="mx-auto max-w-5xl">
         <div className="grid grid-cols-2 gap-8 pb-12 md:grid-cols-4">
           {columns.map((column) => (

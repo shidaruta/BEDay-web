@@ -63,7 +63,7 @@ export function PillarExplorer() {
               <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brand text-white">
                 <IconCheck className="h-4 w-4" />
               </span>
-              <span className="min-w-0 flex-1 truncate text-sm font-semibold text-ink">
+              <span className="min-w-0 flex-1 text-sm font-semibold text-ink sm:truncate">
                 {pillars[active].sampleLog.text}
               </span>
               <span className="shrink-0 rounded-full bg-mint px-2.5 py-0.5 text-[11px] font-bold tracking-[0.08em] text-mint-ink uppercase">

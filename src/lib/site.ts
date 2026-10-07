@@ -8,6 +8,7 @@ export const site = {
   description:
     "BetterEveryday is an AI-powered family wellness app that turns Learning, Fitness, and Diet into one daily habit loop — with an AI Coach, family streaks, and leaderboards.",
   sameAs: socials.map((social) => social.href),
+  email: "bettereveryda7@gmail.com",
 };
 
 export const routes = [
@@ -17,6 +18,7 @@ export const routes = [
   "/diet",
   "/learning",
   "/our-story",
+  "/contact",
   "/data-ai-principles",
   "/privacy",
   "/terms",
