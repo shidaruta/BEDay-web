@@ -8,6 +8,8 @@ import { Social } from "@/components/Social";
 import { Faq, faqs } from "@/components/Faq";
 import { FinalCta } from "@/components/FinalCta";
 import { JsonLd } from "@/components/JsonLd";
+import { SceneColors } from "@/components/SceneColors";
+import { SproutGuide } from "@/components/SproutGuide";
 import { pillars } from "@/lib/pillars";
 import { site } from "@/lib/site";
 
@@ -22,7 +24,7 @@ const homeJsonLd = {
       description: site.description,
       applicationCategory: "HealthApplication",
       operatingSystem: "iOS, Android",
-      image: `${site.url}/phone-dashboard.png`,
+      image: `${site.url}/opengraph-image`,
       publisher: { "@id": `${site.url}/#organization` },
       featureList: pillars.flatMap((pillar) => pillar.features.map((feature) => feature.title)),
     },
@@ -42,14 +44,16 @@ export default function Home() {
     <>
       <JsonLd data={homeJsonLd} />
       <Hero />
-      <WhyBetterEveryday />
       <PillarExplorer />
-      <FeatureBento />
       <HowItWorks />
+      <WhyBetterEveryday />
+      <FeatureBento />
       <Trust />
       <Social />
       <Faq />
       <FinalCta />
+      <SceneColors />
+      <SproutGuide />
     </>
   );
 }

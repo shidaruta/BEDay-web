@@ -2,127 +2,135 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
-import { Reveal } from "@/components/Reveal";
-import { IconArrowRight, IconBot, IconCheck } from "@/components/Icons";
+import { useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { SplitText } from "gsap/SplitText";
+import { useGSAP } from "@gsap/react";
+import { IconArrowRight, IconCheck } from "@/components/Icons";
 import { pillars } from "@/lib/pillars";
 
+gsap.registerPlugin(useGSAP, ScrollTrigger, SplitText);
+
 export function PillarExplorer() {
-  const [active, setActive] = useState(0);
+  const root = useRef<HTMLElement>(null);
+
+  useGSAP(
+    () => {
+      const mm = gsap.matchMedia();
+      mm.add("(prefers-reduced-motion: no-preference)", () => {
+        const scenes = gsap.utils.toArray<HTMLElement>("[data-scene]");
+        const images = gsap.utils.toArray<HTMLElement>("[data-scene-image]");
+        const copies = gsap.utils.toArray<HTMLElement>("[data-scene-copy]");
+        const steps = gsap.utils.toArray<HTMLElement>("[data-scene-step]");
+        const titles = gsap.utils
+          .toArray<HTMLElement>("[data-scene-title]")
+          .map((title) => SplitText.create(title, { type: "chars", mask: "chars" }));
+
+        gsap.from(titles[0].chars, {
+          yPercent: 110,
+          duration: 1,
+          ease: "power4.out",
+          stagger: 0.05,
+          scrollTrigger: { trigger: root.current, start: "top 60%", toggleActions: "play none none reverse" },
+        });
+
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: root.current,
+            start: "top 80px",
+            end: () => `+=${window.innerHeight * (scenes.length - 1) * 1.2}`,
+            pin: true,
+            scrub: 1,
+            invalidateOnRefresh: true,
+          },
+        });
+
+        tl.fromTo(images[0], { scale: 1.15 }, { scale: 1, duration: 1, ease: "none" });
+
+        scenes.slice(1).forEach((scene, i) => {
+          const next = i + 1;
+          tl.to(copies[i], { autoAlpha: 0, y: -60, duration: 0.4, ease: "power1.in" }, "+=0.3")
+            .fromTo(
+              scene,
+              { clipPath: "inset(100% 0% 0% 0%)" },
+              { clipPath: "inset(0% 0% 0% 0%)", duration: 1, ease: "power2.inOut" },
+              "<",
+            )
+            .fromTo(images[next], { scale: 1.25 }, { scale: 1, duration: 1.4, ease: "none" }, "<")
+            .fromTo(copies[next], { autoAlpha: 0, y: 60 }, { autoAlpha: 1, y: 0, duration: 0.5, ease: "power2.out" }, ">-0.7")
+            .from(titles[next].chars, { yPercent: 110, duration: 0.5, stagger: 0.04, ease: "power3.out" }, "<")
+            .to(steps[i], { opacity: 0.4, duration: 0.3 }, "<")
+            .to(steps[next], { opacity: 1, duration: 0.3 }, "<");
+        });
+
+        tl.to({}, { duration: 0.5 });
+
+        return () => titles.forEach((split) => split.revert());
+      });
+      return () => mm.revert();
+    },
+    { scope: root },
+  );
 
   return (
-    <section id="pillars" className="mx-auto max-w-5xl px-6 py-24">
-      <Reveal className="mb-10 flex flex-col justify-between gap-6 md:flex-row md:items-end">
-        <div>
-          <span className="text-xs font-bold tracking-[0.08em] text-brand uppercase">Fitness · Diet · Learning</span>
-          <h2 className="mt-2 text-3xl font-bold tracking-tight text-ink md:text-4xl">
-            Three pillars. <span className="text-brand">One daily score.</span>
-          </h2>
-        </div>
+    <section ref={root} id="pillars" className="pillar-story relative" aria-label="The three pillars">
+      {pillars.map((p, i) => (
+        <article key={p.slug} data-scene className="relative flex min-h-[calc(100svh-5rem)] items-end overflow-clip md:items-center">
+          <Image
+            data-scene-image
+            src={p.image}
+            alt=""
+            fill
+            sizes="100vw"
+            className={`object-cover ${p.focus}`}
+            priority={i === 0}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/10 md:bg-gradient-to-r md:from-black/80 md:via-black/45 md:to-transparent" />
 
-        <div role="tablist" aria-label="Pillars" className="flex items-center gap-1 self-start rounded-full bg-surface-mid p-1 md:self-auto">
-          {pillars.map((p, i) => (
-            <button
-              key={p.slug}
-              type="button"
-              role="tab"
-              id={`tab-${p.slug}`}
-              aria-selected={i === active}
-              aria-controls="pillar-panel"
-              onClick={() => setActive(i)}
-              className={`rounded-full px-5 py-2 text-sm font-semibold transition-all ${
-                i === active ? "bg-surface text-brand-dark shadow-sm" : "text-ink-muted hover:text-ink"
-              }`}
-            >
+          <div data-scene-copy className="relative mx-auto w-full max-w-6xl px-6 pb-14 md:px-12 md:pb-0">
+            <p className="text-xs font-bold tracking-[0.2em] text-white/70 uppercase">
+              0{i + 1} / 0{pillars.length} · {p.name}
+            </p>
+            <h2 data-scene-title className="mt-3 text-6xl leading-[1.15] font-bold tracking-tight text-white md:text-8xl md:leading-[1.15]">
               {p.name}
-            </button>
-          ))}
-        </div>
-      </Reveal>
+            </h2>
+            <p className="mt-4 max-w-xl text-2xl font-semibold text-white md:text-3xl">{p.tagline}</p>
+            <p className="mt-4 max-w-lg text-white/85 md:text-lg">{p.intro}</p>
 
-      <Reveal>
-        <div
-          id="pillar-panel"
-          role="tabpanel"
-          aria-labelledby={`tab-${pillars[active].slug}`}
-          className="grid gap-8 rounded-[2rem] bg-surface p-6 shadow-lg sm:p-10 md:grid-cols-2"
-        >
-          <div className="relative min-h-80 overflow-hidden rounded-2xl">
-            {pillars.map((p, i) => (
-              <Image
-                key={p.slug}
-                src={p.image}
-                alt={p.name}
-                fill
-                sizes="(min-width: 768px) 480px, 100vw"
-                className={`object-cover ${p.focus} transition-opacity duration-500 ${i === active ? "opacity-100" : "opacity-0"}`}
-                priority={i === 0}
-              />
-            ))}
-            <div className="absolute inset-x-3 bottom-3 flex items-center gap-3 rounded-2xl bg-surface/90 px-4 py-3 shadow-md backdrop-blur-md">
-              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brand text-white">
-                <IconCheck className="h-4 w-4" />
-              </span>
-              <span className="min-w-0 flex-1 text-sm font-semibold text-ink sm:truncate">
-                {pillars[active].sampleLog.text}
-              </span>
-              <span className="shrink-0 rounded-full bg-mint px-2.5 py-0.5 text-[11px] font-bold tracking-[0.08em] text-mint-ink uppercase">
-                {pillars[active].sampleLog.method}
-              </span>
-            </div>
+            <ul className="mt-6 flex max-w-xl flex-wrap gap-2">
+              {p.features.map((feature) => (
+                <li
+                  key={feature.title}
+                  className="flex items-center gap-1.5 rounded-full bg-white/15 px-3 py-1.5 text-sm text-white backdrop-blur"
+                >
+                  <IconCheck className="h-4 w-4 text-mint" />
+                  {feature.title}
+                </li>
+              ))}
+            </ul>
+
+            <Link
+              href={`/${p.slug}`}
+              className="mt-8 inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-brand-dark shadow-sm transition-transform hover:scale-[1.03]"
+            >
+              Explore {p.name}
+              <IconArrowRight className="h-4 w-4" />
+            </Link>
           </div>
+        </article>
+      ))}
 
-          <div className="grid">
-            {pillars.map((p, i) => (
-              <div
-                key={p.slug}
-                aria-hidden={i !== active}
-                inert={i !== active}
-                className={`col-start-1 row-start-1 flex flex-col gap-6 transition-opacity duration-300 ${
-                  i === active ? "opacity-100" : "invisible opacity-0"
-                }`}
-              >
-                <div>
-                  <p className="mb-2 flex items-center gap-2 text-[11px] font-bold tracking-[0.08em] text-brand uppercase">
-                    <span className="h-2 w-2 rounded-full bg-brand" />
-                    {p.name}
-                  </p>
-                  <h3 className="text-2xl font-semibold text-ink">{p.tagline}</h3>
-                  <p className="mt-3 leading-relaxed text-ink-muted">{p.intro}</p>
-                </div>
-
-                <ul className="space-y-3 rounded-2xl bg-surface-low p-5">
-                  {p.features.map((feature) => (
-                    <li key={feature.title} className="flex items-start gap-3">
-                      <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand text-white">
-                        <feature.icon className="h-4 w-4" />
-                      </span>
-                      <span>
-                        <span className="block text-sm font-semibold text-ink">{feature.title}</span>
-                        <span className="block text-sm text-ink-muted">{feature.description}</span>
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-
-                <div className="mt-auto flex flex-wrap items-center gap-4">
-                  <Link
-                    href={`/${p.slug}`}
-                    className="inline-flex items-center gap-2 rounded-full bg-brand px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-all hover:scale-[1.02] hover:bg-brand-dark"
-                  >
-                    Explore {p.name}
-                    <IconArrowRight className="h-4 w-4" />
-                  </Link>
-                  <span className="flex items-center gap-1.5 text-sm text-outline">
-                    <IconBot className="h-4 w-4 text-brand" />
-                    Scored by your AI Coach
-                  </span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </Reveal>
+      <ol
+        aria-hidden
+        className="pillar-story-progress absolute top-1/2 right-8 z-10 hidden -translate-y-1/2 flex-col gap-4 text-right text-sm font-bold tracking-[0.15em] text-white uppercase"
+      >
+        {pillars.map((p, i) => (
+          <li key={p.slug} data-scene-step className={i === 0 ? "" : "opacity-40"}>
+            0{i + 1} {p.name}
+          </li>
+        ))}
+      </ol>
     </section>
   );
 }
