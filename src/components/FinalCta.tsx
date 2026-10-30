@@ -11,8 +11,12 @@ export function FinalCta() {
           <p className="mb-4 inline-flex items-center gap-1.5 rounded-full bg-mint px-3 py-1 text-[11px] font-bold tracking-[0.08em] text-mint-ink uppercase">
             Coming soon to iOS &amp; Android
           </p>
-          <h2 className="text-3xl font-bold tracking-tight text-ink md:text-4xl">
-            Ready to become better every day?
+          <h2 className="text-3xl font-bold tracking-tight text-ink md:text-5xl">
+            Ready to become{" "}
+            <span className="bg-gradient-to-r from-brand-dark via-brand to-emerald-500 bg-clip-text text-transparent">
+              Better Everyday
+            </span>
+            ?
           </h2>
           <p className="mt-4 text-lg text-ink-muted">Start your family&apos;s journey today.</p>
 

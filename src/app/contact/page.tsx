@@ -25,7 +25,7 @@ const rowActionClass =
 
 export default function ContactPage() {
   return (
-    <section className="relative overflow-hidden px-6 pt-10 pb-20 md:pt-14">
+    <section className="relative overflow-clip px-6 pt-10 pb-20 md:pt-14">
       <div className="pointer-events-none absolute -top-32 -left-32 -z-10 h-96 w-96 rounded-full bg-brand-tint blur-3xl" />
 
       <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-2">

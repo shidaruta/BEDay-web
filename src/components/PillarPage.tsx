@@ -10,7 +10,7 @@ export function PillarPage({ pillar }: { pillar: Pillar }) {
 
   return (
     <>
-      <section className="relative h-[480px] w-full overflow-hidden md:h-[560px]">
+      <section className="relative h-[480px] w-full overflow-clip md:h-[560px]">
         <Image src={pillar.image} alt={pillar.name} fill sizes="100vw" className="object-cover" priority />
         <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/35 to-transparent" />
         <Reveal className="relative mx-auto flex h-full max-w-6xl flex-col justify-center px-6 md:px-12">
@@ -30,7 +30,7 @@ export function PillarPage({ pillar }: { pillar: Pillar }) {
             <Reveal
               key={feature.title}
               delay={i * 100}
-              className="group rounded-2xl border border-line bg-surface p-7 transition-all duration-300 hover:-translate-y-0.5 hover:border-brand/30 hover:shadow-md"
+              className="group rounded-2xl border border-line bg-surface p-7 transition-[translate,border-color,box-shadow] duration-300 hover:-translate-y-0.5 hover:border-brand/30 hover:shadow-md"
             >
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand text-white transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6">
                 <feature.icon className="h-6 w-6" />

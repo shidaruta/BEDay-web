@@ -1,11 +1,16 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 
-const hiddenByDirection = {
-  up: "translate-y-8 opacity-0",
-  left: "-translate-x-16 opacity-0",
-  right: "translate-x-16 opacity-0",
+gsap.registerPlugin(useGSAP, ScrollTrigger);
+
+const offsetByDirection = {
+  up: { x: 0, y: 64 },
+  left: { x: -96, y: 0 },
+  right: { x: 96, y: 0 },
 };
 
 export function Reveal({
@@ -20,36 +25,33 @@ export function Reveal({
   className?: string;
 }) {
   const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
 
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.15 },
-    );
-
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
+  useGSAP(() => {
+    const mm = gsap.matchMedia();
+    mm.add("(prefers-reduced-motion: no-preference)", () => {
+      gsap.fromTo(
+        ref.current,
+        { autoAlpha: 0, ...offsetByDirection[direction] },
+        {
+          autoAlpha: 1,
+          x: 0,
+          y: 0,
+          duration: 1.1,
+          delay: delay / 1000,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: ref.current,
+            start: "top 88%",
+            toggleActions: "play none none reverse",
+          },
+        },
+      );
+    });
+    return () => mm.revert();
+  });
 
   return (
-    <div
-      ref={ref}
-      style={{ transitionDelay: `${delay}ms` }}
-      className={`transition-all duration-700 ease-out ${
-        visible
-          ? "translate-x-0 translate-y-0 opacity-100"
-          : hiddenByDirection[direction]
-      } ${className}`}
-    >
+    <div ref={ref} data-reveal className={className}>
       {children}
     </div>
   );

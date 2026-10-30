@@ -31,7 +31,7 @@ const anchors = [
 
 export function WhyBetterEveryday() {
   return (
-    <section id="why" className="bg-surface-low px-6 py-24">
+    <section id="why" className="px-6 py-24">
       <div className="mx-auto max-w-5xl">
         <SectionHeading
           eyebrow="Why BetterEveryday?"
