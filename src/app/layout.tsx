@@ -4,6 +4,7 @@ import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { JsonLd } from "@/components/JsonLd";
 import { AiAssistant } from "@/components/AiAssistant";
+import { SmoothScroll } from "@/components/SmoothScroll";
 import { site } from "@/lib/site";
 import "./globals.css";
 
@@ -12,7 +13,11 @@ const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
 });
 
-const homeTitle = `${site.name} — ${site.tagline}`;
+// Hides scroll-animated content before first paint. If the app's JS never
+// boots (failed or stale chunks), the class is dropped so nothing stays hidden.
+const motionScript = `(function(d){d.classList.add("js");setTimeout(function(){if(!d.dataset.motion)d.classList.remove("js")},3000)})(document.documentElement)`;
+
+const homeTitle =`${site.name} — ${site.tagline}`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -63,13 +68,18 @@ const organizationJsonLd = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${jakarta.variable} h-full antialiased`}>
+    <html lang="en" className={`${jakarta.variable} h-full antialiased`} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: motionScript }} />
+      </head>
       <body className="min-h-full flex flex-col bg-canvas text-ink">
         <JsonLd data={organizationJsonLd} />
-        <Nav />
-        <main className="flex-1 overflow-x-clip">{children}</main>
-        <Footer />
-        <AiAssistant />
+        <SmoothScroll>
+          <Nav />
+          <main className="flex-1 overflow-x-clip">{children}</main>
+          <Footer />
+          <AiAssistant />
+        </SmoothScroll>
       </body>
     </html>
   );
